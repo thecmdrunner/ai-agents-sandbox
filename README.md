@@ -1,15 +1,8 @@
-# Dev Container
+# AI Dev Sandbox
 
-Single persistent container for Node.js development. Mounts `~/Developer` so Claude Code can work across projects.
-
-## What's Included
-
-- Ubuntu 24.04
-- Node.js, Bun
+Sandbox for AI Agents to operate autonomously. Mounts `~/Developer`, `~/.config`, etc. so all code and config is shared with my Mac.
 
 ## Usage
-
-### Docker Compose (CLI)
 
 ```bash
 # Build and start
@@ -27,26 +20,6 @@ docker compose down
 1. Install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 2. Open this folder in VS Code
 3. Click "Reopen in Container" when prompted
-
-## Post-Setup
-
-Inside the container:
-
-```bash
-npm install -g @anthropic-ai/claude-code
-claude  # authenticate
-```
-
-## File Structure
-
-```
-.
-├── .devcontainer/
-│   └── devcontainer.json
-├── Dockerfile
-├── docker-compose.yml
-└── README.md
-```
 
 ## Volume Mounts
 
