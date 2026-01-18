@@ -1,0 +1,19 @@
+{
+  "name": "Dev Sandbox",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/home/thecmdrunner/Developer",
+  "remoteUser": "thecmdrunner",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "shutdownAction": "none"
+}

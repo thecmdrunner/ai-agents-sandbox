@@ -1,0 +1,17 @@
+services:
+  dev:
+    build:
+      context: .
+      args:
+        USERNAME: ${USERNAME:-thecmdrunner}
+    container_name: dev-sandbox
+    volumes:
+      - ~/Developer:/home/${USERNAME:-thecmdrunner}/Developer
+      - ~/.gitconfig:/home/${USERNAME:-thecmdrunner}/.gitconfig:ro
+      - ~/.claude:/home/${USERNAME:-thecmdrunner}/.claude
+      - ~/.config:/home/${USERNAME:-thecmdrunner}/.config
+    working_dir: /home/${USERNAME:-thecmdrunner}/Developer
+    user: ${USERNAME:-thecmdrunner}
+    stdin_open: true
+    tty: true
+    command: /bin/bash
