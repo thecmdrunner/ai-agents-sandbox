@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     ripgrep \
     ca-certificates \
+    openssh-server \
     build-essential \
     # Dev deps
     postgresql-client \
@@ -28,6 +29,9 @@ RUN apt-get update && apt-get install -y \
 # Create user with sudo
 RUN useradd -m -s /bin/bash ${USERNAME} \
     && echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Tailscale                                                                                                                                                                   
+RUN curl -fsSL https://tailscale.com/install.sh | sh
 
 # nvm (installs as user)
 USER ${USERNAME}

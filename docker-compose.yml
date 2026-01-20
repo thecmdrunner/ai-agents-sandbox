@@ -5,11 +5,18 @@ services:
       args:
         USERNAME: ${USERNAME:-thecmdrunner}
     container_name: dev-sandbox
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    devices:
+      - /dev/net/tun:/dev/net/tun
     volumes:
       - ~/Developer:/home/${USERNAME:-thecmdrunner}/Developer
       - ~/.gitconfig:/home/${USERNAME:-thecmdrunner}/.gitconfig:ro
       - ~/.claude:/home/${USERNAME:-thecmdrunner}/.claude
       - ~/.config:/home/${USERNAME:-thecmdrunner}/.config
+      - ~/.bashrc:/home/${USERNAME:-thecmdrunner}/.bashrc
+      - ~/.zshrc:/home/${USERNAME:-thecmdrunner}/.zshrc
     working_dir: /home/${USERNAME:-thecmdrunner}/Developer
     user: ${USERNAME:-thecmdrunner}
     stdin_open: true
